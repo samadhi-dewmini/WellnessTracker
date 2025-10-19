@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import com.example.wellnesstracker.database.WellnessDatabase
 import com.example.wellnesstracker.database.HabitRepository
 import com.example.wellnesstracker.database.MoodRepository
+import com.example.wellnesstracker.database.DataMigrationHelper
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -19,6 +20,14 @@ class DataManager(context: Context) {
     private val database = WellnessDatabase.getDatabase(context)
     private val habitRepository = HabitRepository(database.habitDao())
     private val moodRepository = MoodRepository(database.moodDao())
+    private val migrationHelper = DataMigrationHelper(context)
+    
+    init {
+        // Migrate data from SharedPreferences to Room on first launch
+        CoroutineScope(Dispatchers.IO).launch {
+            migrationHelper.migrateDataIfNeeded()
+        }
+    }
 
     // save habits using Room database
     fun saveHabits(habits: List<Habit>) {
