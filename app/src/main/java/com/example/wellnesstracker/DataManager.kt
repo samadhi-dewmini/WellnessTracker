@@ -2,37 +2,59 @@ package com.example.wellnesstracker
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
+import com.example.wellnesstracker.database.WellnessDatabase
+import com.example.wellnesstracker.database.HabitRepository
+import com.example.wellnesstracker.database.MoodRepository
+import com.example.wellnesstracker.database.DataMigrationHelper
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 class DataManager(context: Context) {
 
     private val prefs: SharedPreferences =
         context.getSharedPreferences("WellnessData", Context.MODE_PRIVATE)
-    private val gson = Gson()
+    
+    // Room database components
+    private val database = WellnessDatabase.getDatabase(context)
+    private val habitRepository = HabitRepository(database.habitDao())
+    private val moodRepository = MoodRepository(database.moodDao())
+    private val migrationHelper = DataMigrationHelper(context)
+    
+    init {
+        // Migrate data from SharedPreferences to Room on first launch
+        CoroutineScope(Dispatchers.IO).launch {
+            migrationHelper.migrateDataIfNeeded()
+        }
+    }
 
-    // save habits as JSON
+    // save habits using Room database
     fun saveHabits(habits: List<Habit>) {
-        val json = gson.toJson(habits)
-        prefs.edit().putString("habits", json).apply()
+        CoroutineScope(Dispatchers.IO).launch {
+            habitRepository.insertHabits(habits)
+        }
     }
-     //load habits from JSON
+    
+    // load habits from Room database
     fun loadHabits(): MutableList<Habit> {
-        val json = prefs.getString("habits", null) ?: return mutableListOf()
-        val type = object : TypeToken<MutableList<Habit>>() {}.type
-        return gson.fromJson(json, type) ?: mutableListOf()
+        return runBlocking(Dispatchers.IO) {
+            habitRepository.getAllHabitsList().toMutableList()
+        }
     }
 
-    //  MOODS
+    // save moods using Room database
     fun saveMoods(moods: List<MoodEntry>) {
-        val json = gson.toJson(moods)
-        prefs.edit().putString("moods", json).apply()
+        CoroutineScope(Dispatchers.IO).launch {
+            moodRepository.insertMoods(moods)
+        }
     }
 
+    // load moods from Room database
     fun loadMoods(): MutableList<MoodEntry> {
-        val json = prefs.getString("moods", null) ?: return mutableListOf()
-        val type = object : TypeToken<MutableList<MoodEntry>>() {}.type
-        return gson.fromJson(json, type) ?: mutableListOf()
+        return runBlocking(Dispatchers.IO) {
+            moodRepository.getAllMoodsList().toMutableList()
+        }
     }
 
     // SETTINGS
