@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Dark Mode Theme -->
+    <style name="Theme.WellnessTracker" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="colorPrimary">#90CAF9</item>
+        <item name="colorPrimaryVariant">#42A5F5</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorSecondary">#80CBC4</item>
+        <item name="android:statusBarColor">#1976D2</item>
+    </style>
+
+    <!-- Splash stays same in dark mode -->
+    <style name="SplashTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">#2196F3</item>
+        <item name="android:statusBarColor">#2196F3</item>
+    </style>
+
+</resources>

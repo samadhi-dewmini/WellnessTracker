@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Original Material Colors -->
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- App Custom Colors -->
+    <color name="splash_background">#2196F3</color>
+    <color name="primary_blue">#2196F3</color>
+    <color name="primary_blue_dark">#1976D2</color>
+    <color name="primary_green">#4CAF50</color>
+    <color name="primary_orange">#FF9800</color>
+
+    <!-- Background Colors for Onboarding -->
+    <color name="onboarding_bg1">#E3F2FD</color>
+    <color name="onboarding_bg2">#E8F5E9</color>
+    <color name="onboarding_bg3">#FFF3E0</color>
+
+    <!-- Text Colors -->
+    <color name="text_dark">#333333</color>
+    <color name="text_gray">#666666</color>
+    <color name="text_light_gray">#999999</color>
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Wellness Tracker</string>
+
+    <!-- Habits -->
+    <string name="mark_habit_complete">Mark habit as complete</string>
+    <string name="edit_habit_description">Edit habit</string>
+    <string name="delete_habit_description">Delete habit</string>
+
+    <!-- Mood -->
+    <string name="delete_mood_description">Delete mood entry</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="water_reminders_title">Water Reminders</string>
+    <string name="daily_goals_title">Daily Goals</string>
+    <string name="about_title">About</string>
+    <string name="enable_reminders">Enable Reminders</string>
+    <string name="enable_reminders_desc">Get notified to stay hydrated</string>
+    <string name="interval_default">Reminder Interval: Every 2 hours</string>
+    <string name="interval_range">Range: 30 minutes to 4 hours</string>
+    <string name="water_goal_default">Daily Water Goal: 8 glasses</string>
+    <string name="water_goal_range">Range: 4 to 16 glasses per day</string>
+    <string name="app_version">Version 1.0.0</string>
+    <string name="app_tagline">Stay healthy and track your habits daily! 💪</string>
+
+    <!-- Content Descriptions -->
+    <string name="reminder_switch_desc">Toggle water reminders on or off</string>
+    <string name="interval_seekbar_desc">Adjust reminder interval</string>
+    <string name="water_goal_seekbar_desc">Adjust daily water goal</string>
+</resources>

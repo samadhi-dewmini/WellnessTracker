@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/onboarding_gradient_1"
+    android:padding="32dp">
+
+    <!-- Icon at top -->
+    <ImageView
+        android:id="@+id/onboarding_icon"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:src="@drawable/onboarding_icon_welcome"
+        android:contentDescription="Welcome Icon"/>
+
+    <!-- Content Container -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/onboarding_icon"
+        android:layout_marginTop="48dp"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome to"
+            android:textSize="22sp"
+            android:textColor="#333333"
+            android:fontFamily="sans-serif-light"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Wellness Tracker"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:textColor="#667eea"
+            android:fontFamily="sans-serif-medium"/>
+
+        <!-- Description -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Your personal companion for building healthy habits and achieving wellness goals every single day"
+            android:textSize="17sp"
+            android:textColor="#555555"
+            android:gravity="center"
+            android:lineSpacingExtra="6dp"
+            android:fontFamily="sans-serif"/>
+
+        <!-- Feature Badges -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:text="📊 Track"
+                android:textSize="14sp"
+                android:background="#40667eea"
+                android:textColor="#667eea"
+                android:layout_marginEnd="8dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:text="🎯 Achieve"
+                android:textSize="14sp"
+                android:background="#40667eea"
+                android:textColor="#667eea"
+                android:layout_marginEnd="8dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:text="💪 Grow"
+                android:textSize="14sp"
+                android:background="#40667eea"
+                android:textColor="#667eea"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
